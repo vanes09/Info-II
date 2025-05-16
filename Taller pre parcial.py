@@ -1,5 +1,6 @@
 #importo la librería
 import numpy as np
+import pandas as pd
 
 #matriz aleatioria de 4 dimendiones con size de 1200000
 matriz = np.random.rand(20,30,40,50)
@@ -19,3 +20,13 @@ print("Tipo del objeto:", type(copia_3d))
 
 #Se modifica la matriz y se pasa a 2D
 copia_2D = copia_3d.reshape(1200,50)
+
+#función para convertir matriz 2D a data frame
+def data_frame(arreglo):
+    DF = pd.DataFrame(arreglo)
+    return DF
+
+#llamado a la función
+DF_copia2D = data_frame(copia_2D)
+
+
