@@ -48,6 +48,28 @@ def cargar_archivo(ruta):
     else:
         raise ValueError("Formato no soportado. Solo se aceptan archivos .csv y .mat")
 
+def suma(array, eje=None):
+    return np.sum(array, axis=eje) 
+    
+def restar(array1, array2):
+    return np.subtract(array1, array2)
 
+def multiplicar(array, eje=None):
+    return np.prod(array, axis=eje)
+
+def dividir(array1, array2):
+    return np.divide(array1, array2)
+
+def logaritmo(array, base=np.e):
+    if base == np.e:
+        return np.log(array)
+    else:
+        return np.log(array) / np.log(base)
+
+def promedio(array, eje=None):
+    return np.mean(array, axis=eje)
+
+def desviacion_estandar(array, eje=None):
+    return np.std(array, axis=eje)
 
 
