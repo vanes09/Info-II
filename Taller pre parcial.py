@@ -1,6 +1,8 @@
 #importo la librería
 import numpy as np
 import pandas as pd
+from scipy.io import loadmat
+import os 
 
 #matriz aleatioria de 4 dimendiones con size de 1200000
 matriz = np.random.rand(20,30,40,50)
@@ -28,5 +30,24 @@ def data_frame(arreglo):
 
 #llamado a la función
 DF_copia2D = data_frame(copia_2D)
+
+def cargar_archivo(ruta):
+    extension = os.path.splitext(ruta)[1].lower() #divide el nombre en dos y [1] es la extension ya sea .csv o .mat
+
+    if extension == '.csv':
+        df = pd.read_csv(ruta) #devuelve un archivo listo para ser usado en pandas, algo así como tabla
+        print("El archivo csv fue cargado correctamente")
+        return df
+    
+        
+    elif extension == '.mat':
+        data = loadmat(ruta) #devuelve un diccionario
+        print("Archivo mat fue cargado correctamente.")
+        return data
+    
+    else:
+        raise ValueError("Formato no soportado. Solo se aceptan archivos .csv y .mat")
+
+
 
 
